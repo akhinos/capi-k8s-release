@@ -50,5 +50,6 @@ RUN gem install bundler -v 1.17.3 && \
 
 COPY cloud_controller_ng/ .
 COPY lifecycle_hooks/ .
+COPY core.rb /usr/local/lib/ruby/gems/2.5.0/gems/sequel-5.22.0/lib/sequel/core.rb
 
 ENTRYPOINT ["/cloud_controller_ng/bin/cloud_controller", "-c", "/config/cloud_controller_ng.yml"]

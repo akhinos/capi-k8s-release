@@ -172,8 +172,8 @@ data:
         endpoint: {{ .Values.blobstore.endpoint }}
         aws_access_key_id: {{ .Values.blobstore.access_key_id }}
         aws_secret_access_key: {{ .Values.blobstore.secret_access_key }}
-        aws_signature_version: '2'
-        region: "''"
+        aws_signature_version: {{ .Values.blobstore.signature_version | default "2" | quote }}
+        region: {{ .Values.blobstore.region | quote }}
         path_style: true
       minimum_size: 65536
       maximum_size: 536870912
@@ -193,8 +193,8 @@ data:
         endpoint: {{ .Values.blobstore.endpoint }}
         aws_access_key_id: {{ .Values.blobstore.access_key_id }}
         aws_secret_access_key: {{ .Values.blobstore.secret_access_key }}
-        aws_signature_version: '2'
-        region: "''"
+        aws_signature_version: {{ .Values.blobstore.signature_version | default "2" | quote }}
+        region: {{ .Values.blobstore.region | quote }}
         path_style: true
       max_valid_packages_stored: 5
       max_package_size: 1073741824
@@ -214,8 +214,8 @@ data:
         endpoint: {{ .Values.blobstore.endpoint }}
         aws_access_key_id: {{ .Values.blobstore.access_key_id }}
         aws_secret_access_key: {{ .Values.blobstore.secret_access_key }}
-        aws_signature_version: '2'
-        region: "''"
+        aws_signature_version: {{ .Values.blobstore.signature_version | default "2" | quote }}
+        region: {{ .Values.blobstore.region | quote }}
         path_style: true
 
       cdn:
@@ -234,8 +234,8 @@ data:
         endpoint: {{ .Values.blobstore.endpoint }}
         aws_access_key_id: {{ .Values.blobstore.access_key_id }}
         aws_secret_access_key: {{ .Values.blobstore.secret_access_key }}
-        aws_signature_version: '2'
-        region: "''"
+        aws_signature_version: {{ .Values.blobstore.signature_version | default "2" | quote }}
+        region: {{ .Values.blobstore.region | quote }}
         path_style: true
 
       cdn:

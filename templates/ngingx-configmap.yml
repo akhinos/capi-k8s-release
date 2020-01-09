@@ -33,6 +33,7 @@ data:
           # TODO: move to a separate file and `include` like capi-release?
           # proxy and log all CC traffic
           location / {
+            client_max_body_size       100m;
             access_log  /cloud_controller_ng/nginx-access.log;
             proxy_buffering             off;
             proxy_set_header            Host $host;

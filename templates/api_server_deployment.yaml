@@ -76,6 +76,20 @@ spec:
             mountPath: /data/cloud_controller_ng
           - name: nginx-logs
             mountPath: /cloud_controller_ng
+      {{- if .Values.nameserver }}
+      dnsConfig:
+        nameservers:
+        - {{ .Values.nameserver }}
+        options:
+        - name: ndots
+          value: "5"
+        searches:
+        - kubecf.svc.cluster.local
+        - svc.cluster.local
+        - cluster.local
+        - service.cf.internal
+      dnsPolicy: None
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
