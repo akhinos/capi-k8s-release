@@ -130,7 +130,7 @@ data:
     # TODO: change the UAA's Kube DNS name when the service is named correctly later
     uaa:
       url: https://uaa.{{ .Values.system_domain }}
-      internal_url: http://uaa.{{ .Release.Namespace }}.svc.cluster.local:8080
+      internal_url: {{ .Values.uaa.internal_url | default "http://uaa.{{ .Release.Namespace }}.svc.cluster.local:8080" }}
       resource_id: cloud_controller,cloud_controller_service_permissions
       client_timeout: 60
       ca_file: /config/uaa/certs/uaa.crt
